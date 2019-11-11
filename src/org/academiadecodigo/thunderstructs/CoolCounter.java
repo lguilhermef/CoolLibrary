@@ -32,7 +32,7 @@ public class CoolCounter {
     public static void main(String[] args) {
 
         CoolCounter coolCounter = new CoolCounter();
-        int value = 22cd
+        int value = 22;
 
         while (value > 0) {
 
