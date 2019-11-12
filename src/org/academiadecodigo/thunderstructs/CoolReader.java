@@ -38,7 +38,6 @@ public class CoolReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void close () {
