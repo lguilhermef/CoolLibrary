@@ -61,7 +61,7 @@ public class CoolRandom implements Coolness {
 
     /**
      * Cool Random Mindfuck is a random generator that generates a number between 0 and the number you gave (NOT INCLUDED)
-     *
+     * <p>
      * Then, if another Math.Random is lower than the MINDFUCK value, it will return that random generated number.
      * Else, the method will generate another random generated number that can be up to maxNumber*maxNumber.
      *
@@ -82,7 +82,7 @@ public class CoolRandom implements Coolness {
 
     /**
      * Cool Random Mindfuck is a random generator that generates a number between 0 and the number you gave (NOT INCLUDED)
-     *
+     * <p>
      * Then, if another Math.Random is lower than the MINDFUCK value, it will return that random generated number.
      * Else, the method will generate another random generated number that can be up to maxNumber*maxNumber.
      *
@@ -99,6 +99,17 @@ public class CoolRandom implements Coolness {
 
         return ((Math.random() * (maxNumber * (Math.random() * maxNumber))));
     }
+
+    /**
+     * Cool Random Boolean is a method that provides you a boolean if the generated number is higher than your percentage
+     *
+     * @param percentage percentaged to be compare to
+     * @return a boolean according to result of the generated number and the percentage
+     */
+    public static boolean CoolRandomBoolean(int percentage) {
+        return (Math.random() * 100) <= percentage;
+    }
+
 
     /*W.I.P*/
 
@@ -140,13 +151,13 @@ public class CoolRandom implements Coolness {
         CoolRandom coolRandom = new CoolRandom();
 
         //Coolness
-        System.out.println("Coolnessssssssssss~~~~~~~~~~~~~~~~~~~~~~~\n");
+        System.out.println("Coolnessssssssssss ~~~~~~~~~~~~~~~~~~~~~~~\n");
         for (int i = 0; i < 10; i++) {
             coolRandom.coolness();
         }
 
         //CoolRandom
-        System.out.println("\n\nCOOL RANDOM~~~~~~~~~~~~~~~~~~\n");
+        System.out.println("\n\nCOOL RANDOM ~~~~~~~~~~~~~~~~~~\n");
 
         for (int i = 0; i < 10; i++) {
             System.out.println(CoolRandom(5));
@@ -157,7 +168,7 @@ public class CoolRandom implements Coolness {
         }
 
         //CoolIntervalRandom
-        System.out.println("\n\nCOOL INTERVAL RANDOM ~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        System.out.println("\n\nCOOL RANDOM INTERVAL ~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         for (int i = 0; i < 10; i++) {
             System.out.println(CoolIntervalRandom(5, 10));
         }
@@ -167,7 +178,7 @@ public class CoolRandom implements Coolness {
         }
 
         //CoolMindfuckRandom
-        System.out.println("\n\nCOOL MINDFUCK RANDOM ~~~~~~~~~~~~~~~~~~~~~~\n");
+        System.out.println("\n\nCOOL RANDOM MINDFUCK ~~~~~~~~~~~~~~~~~~~~~~\n");
         for (int i = 0; i < 10; i++) {
             System.out.println(CoolRandomMindfuck(20));
         }
@@ -175,6 +186,13 @@ public class CoolRandom implements Coolness {
         for (int i = 0; i < 10; i++) {
             System.out.println(CoolRandomMindfuck(20.0));
         }
+
+        //CoolRandomBoolean
+        System.out.println("\n\nCOOL RANDOM BOOLEAN ~~~~~~~~~~~~~~~~~~~~~~~~");
+        for(int i = 0; i < 1000; i++) {
+            System.out.println(CoolRandomBoolean(100));
+        }
+
     }
 
 }
