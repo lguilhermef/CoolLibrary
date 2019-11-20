@@ -1,5 +1,8 @@
 package org.academiadecodigo.thunderstructs;
 
+import java.lang.reflect.Array;
+import java.util.*;
+
 public class CoolRandom implements Coolness {
 
     private static final double MINDFUCK = 0.9;
@@ -10,7 +13,7 @@ public class CoolRandom implements Coolness {
      * @param maxNumber max number (NOT INCLUDED) to be generated
      * @return the random generated number (int)
      */
-    public static int CoolRandom(int maxNumber) {
+    public static int coolRandom(int maxNumber) {
         return (int) (Math.random() * maxNumber);
     }
 
@@ -20,7 +23,7 @@ public class CoolRandom implements Coolness {
      * @param maxNumber max number (NOT INCLUDED) to be generated
      * @return the random generated number
      */
-    public static double CoolRandom(double maxNumber) {
+    public static double coolRandom(double maxNumber) {
         return (Math.random() * maxNumber);
     }
 
@@ -31,7 +34,7 @@ public class CoolRandom implements Coolness {
      * @param maxNumber max number (NOT INCLUDED)
      * @return the random generated number (int) in the interval
      */
-    public static int CoolIntervalRandom(int minNumber, int maxNumber) {
+    public static int coolIntervalRandom(int minNumber, int maxNumber) {
 
         int number;
 
@@ -48,7 +51,7 @@ public class CoolRandom implements Coolness {
      * @param maxNumber max number (NOT INCLUDED)
      * @return the random generated number (double) in the interval
      */
-    public static double CoolIntervalRandom(double minNumber, double maxNumber) {
+    public static double coolIntervalRandom(double minNumber, double maxNumber) {
 
         double number;
 
@@ -68,7 +71,7 @@ public class CoolRandom implements Coolness {
      * @param maxNumber max number to be generated (OR NOT)
      * @return random generated number (int)
      */
-    public static int CoolRandomMindfuck(int maxNumber) {
+    public static int coolRandomMindfuck(int maxNumber) {
 
         int number = (int) (Math.random() * maxNumber);
 
@@ -89,7 +92,7 @@ public class CoolRandom implements Coolness {
      * @param maxNumber max number to be generated (OR NOT)
      * @return random generated number (double)
      */
-    public static double CoolRandomMindfuck(double maxNumber) {
+    public static double coolRandomMindfuck(double maxNumber) {
 
         double number = (Math.random() * maxNumber);
 
@@ -106,10 +109,54 @@ public class CoolRandom implements Coolness {
      * @param percentage percentaged to be compare to
      * @return a boolean according to result of the generated number and the percentage
      */
-    public static boolean CoolRandomBoolean(int percentage) {
+    public static boolean coolRandomBoolean(int percentage) {
         return (Math.random() * 100) <= percentage;
     }
 
+    /**
+     * Cool Array Randomizer is a method to randomize an array of Strings
+     *
+     * @param words array you wish to randomize
+     * @return a new array of Strings
+     */
+    public static Object[] coolArrayRandomizer(String[] words) {
+
+        String[] newArray = new String[words.length];
+        List<String> newArrayList = new ArrayList<>();
+
+        newArrayList.addAll(Arrays.asList(words));
+        Collections.shuffle(newArrayList);
+
+        for (int i = 0; i < words.length; i++) {
+            newArray[i] = newArrayList.get(i);
+        }
+
+        return newArray;
+    }
+
+    /**
+     * Cool Array Randomizer is a method to randomize an array of int
+     *
+     * @param numbers array of numbers you want to randomize
+     * @return a new array of ints randmized
+     */
+    public static int[] coolArrayRandomizer(int[] numbers) {
+
+        int[] newArray = new int[numbers.length];
+        List<Integer> newArrayList = new ArrayList<>();
+
+        for (int i = 0; i < numbers.length; i++) {
+            newArrayList.add(numbers[i]);
+        }
+
+        Collections.shuffle(newArrayList);
+
+        for (int i = 0; i < numbers.length; i++) {
+            newArray[i] = newArrayList.get(i);
+        }
+
+        return newArray;
+    }
 
     /*W.I.P*/
 
@@ -160,37 +207,60 @@ public class CoolRandom implements Coolness {
         System.out.println("\n\nCOOL RANDOM ~~~~~~~~~~~~~~~~~~\n");
 
         for (int i = 0; i < 10; i++) {
-            System.out.println(CoolRandom(5));
+            System.out.println(coolRandom(5));
         }
 
         for (int i = 0; i < 10; i++) {
-            System.out.println(CoolRandom(5.0));
+            System.out.println(coolRandom(5.0));
         }
 
         //CoolIntervalRandom
         System.out.println("\n\nCOOL RANDOM INTERVAL ~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         for (int i = 0; i < 10; i++) {
-            System.out.println(CoolIntervalRandom(5, 10));
+            System.out.println(coolIntervalRandom(5, 10));
         }
 
         for (int i = 0; i < 10; i++) {
-            System.out.println(CoolIntervalRandom(5.0, 10.0));
+            System.out.println(coolIntervalRandom(5.0, 10.0));
         }
 
         //CoolMindfuckRandom
         System.out.println("\n\nCOOL RANDOM MINDFUCK ~~~~~~~~~~~~~~~~~~~~~~\n");
         for (int i = 0; i < 10; i++) {
-            System.out.println(CoolRandomMindfuck(20));
+            System.out.println(coolRandomMindfuck(20));
         }
 
         for (int i = 0; i < 10; i++) {
-            System.out.println(CoolRandomMindfuck(20.0));
+            System.out.println(coolRandomMindfuck(20.0));
         }
 
         //CoolRandomBoolean
         System.out.println("\n\nCOOL RANDOM BOOLEAN ~~~~~~~~~~~~~~~~~~~~~~~~");
-        for(int i = 0; i < 1000; i++) {
-            System.out.println(CoolRandomBoolean(100));
+        for (int i = 0; i < 10; i++) {
+            System.out.println(coolRandomBoolean(100));
+        }
+
+        //Cool Array Randomizer
+        System.out.println("\n\nCOOL STRING RANDOMIZER ~~~~~~~~~~~~~~~~~~~~~~");
+        String[] cool = {"cooliness", "waza", "coolllllllllllllllnesssssss", "A TUA PRIMA", "VAI-TE LIXAR", "O RAFA É O MAIOR", "LOLEEEEE"};
+        int[] cool1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        String[] newCool = (String[]) coolArrayRandomizer(cool);
+        int[] newCool1 = coolArrayRandomizer(cool1);
+
+        for (int i = 0; i < cool.length; i++) {
+            System.out.println(cool[i]);
+        }
+
+        System.out.println("\n\n NEW ARRAY\n");
+
+        for (int i = 0; i < cool.length; i++) {
+            System.out.println(newCool[i]);
+        }
+
+        System.out.println("\n\n NUMBERS AFTER\n");
+
+        for (int i = 0; i < cool1.length; i++) {
+            System.out.println(newCool1[i]);
         }
 
     }
